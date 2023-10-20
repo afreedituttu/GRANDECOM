@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const sendMail = require('../utils/sendMail');
 const catchAsyncError = require('../middlewares/catchAsyncError');
 const sendToken = require('../utils/jwt');
+const { isAuthenticated } = require('../middlewares/auth');
 
 router.post('/create-user', upload.single("file"), async(req, res, next)=>{
     const {name, password, email} = req.body;
@@ -132,6 +133,19 @@ router.post('/login-user', catchAsyncError(async(req, res, next)=>{
     }
 }))
 
+router.get('/get-user',isAuthenticated, catchAsyncError(async(req, res, next)=>{
+    try{
+        if(!req.user){
+            return next(new ErrorHandler("User doesn't exist", 400));
+        }
 
+        res.status(200).json({
+            success:true,
+            user:req.user
+        })
+    }catch(error){
+        return next(new ErrorHandler(error.message, 500))
+    }
+}))
 
 module.exports = router

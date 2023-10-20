@@ -7,7 +7,7 @@ module.exports = (err, req, res, next) => {
     //wrong mongodb id error
     if(err.name == 'CastError'){
         const message = `Resources not found wiht this id.. Invalid ${err.path}`
-        err = new Error(message, 400);
+        err = new ErrorHandler(message, 400);
     }
 
     //Duplicate key error

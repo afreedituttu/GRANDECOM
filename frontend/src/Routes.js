@@ -1,9 +1,11 @@
-import Login from '../src/pages/LoginPage.jsx';
-import Signup from '../src/pages/SignupPage.jsx';
+import Login from './pages/LoginPage.jsx';
+import Signup from './pages/SignupPage.jsx';
 import ActivationPage from './pages/ActivationPage.jsx'
+import HomePage from './pages/HomePage.jsx'
 
 export {
     Login,
     Signup,
-    ActivationPage
+    ActivationPage,
+    HomePage
 }

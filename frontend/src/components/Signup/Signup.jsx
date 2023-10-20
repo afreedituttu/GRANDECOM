@@ -5,6 +5,7 @@ import styles from '../../styles/style';
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import {server} from '../../server';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -30,11 +31,16 @@ const Signup = () => {
 
       axios.post(`${server}/user/create-user`, newForm, config).then((res)=>{
         if(res.data.success === true){
-          navigate('/');
+          toast.success(res.data.message);
+          console.log(res.data.message);
+          setName("")
+          setEmail("")
+          setPassword("")
+          setAvatar();
         }
-        console.log(res);
-      }).catch((err)=>{
-        console.log(err);
+      }).catch((error)=>{
+        toast.error("error")
+        console.log(error.response.data.message);
       });
     }
     const handleFile = (e)=> {

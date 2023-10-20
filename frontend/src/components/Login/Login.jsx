@@ -19,7 +19,7 @@ const Login = () => {
       await axios.post(`${server}/user/login-user`,{
         email,
         password
-      }).then((response)=>{
+      },{withCredentials:true}).then((response)=>{
         console.log('success');
         console.log(response);
         navigate('/')
