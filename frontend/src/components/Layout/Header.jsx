@@ -30,7 +30,7 @@ const Header = ({activeHeading}) => {
   };
 
   window.addEventListener("scroll", ()=>{
-    if(window.scroll > 70){
+    if(window.scrollY > 70){
       setActive(true)
     }else{
       setActive(false)
@@ -89,12 +89,12 @@ const Header = ({activeHeading}) => {
     </div>
     <div className={`${active === true?"shadow-sm fixed top-0 left-0 z-10":null} transition hidden 800px:flex items-center justify-between w-full bg-[#3321c0] h-[70px]`}>
       <div className={`${styles.section} relative ${styles.noramlFlex} justify-between`}>
-        <div className="relative h-[60px] w-[270px] hidden 1000px:block">
+        <div onClick={()=>{setDropdown(!dropdown)}} className="relative h-[60px] w-[270px] hidden 1000px:block">
           <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
           <button className={'h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md'}>
             All categories
           </button>
-          <IoIosArrowDown size={20} className="absolute right-2 top-4 cursor-pointer" onClick={()=>{setDropdown(!dropdown)}} />
+          <IoIosArrowDown size={20} className="absolute right-2 top-4 cursor-pointer" />
           {
             dropdown ? (
               <DropDown categoriesData={categoriesData} setDropdown={setDropdown} />
