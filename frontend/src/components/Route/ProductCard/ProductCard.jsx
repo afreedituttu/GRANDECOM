@@ -54,7 +54,7 @@ const ProductCard = ({data}) => {
             :
             <AiOutlineHeart size={22} className='cursor-pointer absolute right-2 top-5' onClick={()=>{setClick(!click)}} color={click?"red":"#333"} title='Add to wishlist' />}
 
-            <AiOutlineEye size={22} className='cursor-pointer absolute right-2 top-14' onClick={()=>{setOpen(!open)}} color={click?"red":"#333"} title='Quick view' />
+            <AiOutlineEye size={22} className='cursor-pointer absolute right-2 top-14' onClick={()=>{setOpen(!open)}} title='Quick view' />
             <AiOutlineShoppingCart size={22} className='cursor-pointer absolute right-2 top-24' onClick={()=>{setOpen(!open)}} color={"#444"} title='Add to cart' />
             {
                 open?

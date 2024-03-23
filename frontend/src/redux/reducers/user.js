@@ -13,7 +13,7 @@ export const userReducer = createReducer(initialState, {
         state.loading = false;
         state.user = action.payload;
     },
-    LoadUserFali: (state, action)=> {
+    LoadUserFail: (state, action)=> {
         state.loading = false;
         state.error = action.payload;
         state.isAuthenticated = false;

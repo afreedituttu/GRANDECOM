@@ -6,7 +6,6 @@ const DropDown = ({categoriesData, setDropDown}) => {
     const navigate = useNavigate();
     const submitHandler = (i) => {
         navigate(`/products?category=${i.title}`);
-        setDropDown(false);
         window.location.reload();
     }
     console.log(categoriesData);

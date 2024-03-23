@@ -20,7 +20,8 @@ const Login = () => {
         email,
         password
       },{withCredentials:true}).then((response)=>{
-        navigate('/')
+        navigate('/');
+        window.location.reload();
       }).catch((error)=>{
         console.log(error);
       })
